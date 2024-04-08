@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dd7a7d9052809408601b12a4fada46, type: 3}
+  m_Name: Grazyna
+  m_EditorClassIdentifier: 
+  catSprite: {fileID: 21300000, guid: f593be63d004927449431d5f562b0d1c, type: 3}
+  catName: Grazyna
+  abilityDescription: 
+  attackAnimation: 0
+  catColor: {r: 0.6359629, g: 0.6618372, b: 0.6754716, a: 1}
+  catEyeColor: {r: 0, g: 0.7515292, b: 1, a: 1}
+  catNoseColor: {r: 1, g: 0.7075472, b: 0.7075472, a: 1}
+  catBreed: 8
+  attackPrefab: {fileID: 3855824550957430280, guid: f42731c967dd4b843b138d913e430bf2, type: 3}
+  damage: 25
+  cooldown: 0.4
+  health: 9
