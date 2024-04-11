@@ -808,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249695083046479141, guid: 69937d3716711064db9a8c6f4a58f4fe, type: 3}
       propertyPath: orthographic size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8956827221552683525, guid: 69937d3716711064db9a8c6f4a58f4fe, type: 3}
       propertyPath: m_LocalScale.x
