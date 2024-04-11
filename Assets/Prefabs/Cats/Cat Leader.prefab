@@ -157,10 +157,6 @@ PrefabInstance:
       propertyPath: catCharacter
       value: 
       objectReference: {fileID: 7369131472950945089}
-    - target: {fileID: 7732311571653158575, guid: 00fca38c205e2b940a89c25b5b790118, type: 3}
-      propertyPath: m_Intensity
-      value: 1.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8919533782257819370, guid: 00fca38c205e2b940a89c25b5b790118, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

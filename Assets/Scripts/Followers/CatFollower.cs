@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using CatPackage;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class CatFollower : CatCharacter

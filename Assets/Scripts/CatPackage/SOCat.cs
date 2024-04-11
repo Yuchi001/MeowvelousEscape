@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using AbilityPackage;
 using CatPackage;
-using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Utils;
 
 [CreateAssetMenu(fileName="new Cat", menuName="Custom/Cat")]
 public class SOCat : ScriptableObject
@@ -30,36 +28,10 @@ public class SOCat : ScriptableObject
     {
         var attackObject = Instantiate(attackPrefab, shootPos, Quaternion.identity);
         UtilsMethods.LookAtMouse(attackObject.transform);
-        var attackScript = attackObject.GetComponent<AttackObject>();
-        attackScript.Attack(self, Mathf.CeilToInt(
+        var attackScript = attackObject.GetComponent<Ability>();
+        attackScript.UseAbility(self, Mathf.CeilToInt(
             damage + (damage / 10f) * catLevel));
         Destroy(attackObject, 0.1f);
-    }
-
-    public void SetMaterialColor(SpriteRenderer spriteRenderer)
-    {
-        // red -> nos
-        // blue -> fur
-        // green -> eyes
-        spriteRenderer.sprite = catSprite;
-        var material = spriteRenderer.material;
-        material.SetColor("_Red", catNoseColor);
-        material.SetColor("_Blue", catColor);
-        material.SetColor("_Green", catEyeColor);
-    }
-    public void SetMaterialColor(Image image)
-    {
-        // red -> nos
-        // blue -> fur
-        // green -> eyes
-        image.sprite = catSprite;
-        var material = Instantiate(image.material);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, 1);
-
-        material.SetColor("_Red", catNoseColor);
-        material.SetColor("_Blue", catColor);
-        material.SetColor("_Green", catEyeColor);
-        image.material = material;
     }
 
     public SCatDisplayInfo GetDisplayInfo()

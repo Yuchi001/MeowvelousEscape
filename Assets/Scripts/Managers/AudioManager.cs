@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Managers.Enum;
+using Managers.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Managers
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : MonoBehaviour, IManagedSingleton
     {
         [SerializeField] private List<SoundEffectData> soundEffects = new();
         [SerializeField] private Vector2 pitchDiffRange = new Vector2(-0.1f, 0.1f);
@@ -16,7 +17,7 @@ namespace Managers
 
         public static AudioManager Instance { get; private set; }
 
-        private void Awake()
+        public void Init()
         {
             if (Instance != null && Instance != this) Destroy(Instance);
             else Instance = this;
@@ -51,7 +52,7 @@ namespace Managers
     [System.Serializable]
     public class SoundEffectData
     {
-        public List<AudioClip> clips = new List<AudioClip>();
+        public List<AudioClip> clips = new();
         public ESoundEffect name;
     }
 }
