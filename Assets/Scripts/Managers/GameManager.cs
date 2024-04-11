@@ -40,7 +40,7 @@ namespace Managers
             foreach (Transform child in transform)
             {
                 if(nonSingletonObjects.FirstOrDefault
-                       (n => n.GetInstanceID() == child.GetInstanceID()) != default) 
+                       (n => n.name == child.name) != default) 
                     continue;
                 
                 if (!child.TryGetComponent<IManagedSingleton>(out var singleton))
