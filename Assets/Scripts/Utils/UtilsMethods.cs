@@ -26,6 +26,17 @@ namespace Utils
             var angleRad = Mathf.Atan2(y, x);
             return isRad ? angleRad - Mathf.Deg2Rad * 90 : (180 / Mathf.PI) * angleRad - 90;
         }
+
+        /// <summary>
+        /// Simple function to get conditional signed value.
+        /// </summary>
+        /// <param name="val">Value to be returned</param>
+        /// <param name="condition">Condition to be checked</param>
+        /// <returns>Given value if condition is met or reversed value if condition is not met.</returns>
+        public static float ConditionalSignedValue(this float val, bool condition)
+        {
+            return condition ? val : -val;
+        }
         
         /*public static void SetCatMaterialColors(SpriteRenderer spriteRenderer)
         {

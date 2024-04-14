@@ -3,7 +3,7 @@
     public enum ECatBreed
     {
         None = 0,
-        // houseCat
+        // HouseCat
         AmericanCurl = 1, // tier 1 done
         British = 2, // tier 1 done
         ScottishFold = 3, // tier 2 done
@@ -13,5 +13,6 @@
         MaineCoon = 7, // tier 4 done
         Ragdoll = 8, // tier 4 done
         // KhaoManee = 8, // tier 5 done
+        // Siberian
     }
 }

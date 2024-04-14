@@ -22,6 +22,7 @@
         run,
         slash,
         tail_sweep,
-        unknown_weapon
+        unknown_weapon,
+        button_click,
     }
 }
