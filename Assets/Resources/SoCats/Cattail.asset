@@ -16,7 +16,7 @@ MonoBehaviour:
   catName: Cattail
   abilityDescription: "Test opisu umiej\u0119tno\u015Bci kotka"
   attackAnimation: 0
-  catColor: {r: 1, g: 0.9292453, b: 0.9292453, a: 1}
+  catColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
   catEyeColor: {r: 0, g: 0, b: 0, a: 1}
   catNoseColor: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
   catBreed: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CatPackage;
 using Managers.Enum;
 using Managers.Interfaces;
 using Managers.SavingProgress;
@@ -40,6 +41,12 @@ namespace Managers
         #endregion
 
         [SerializeField] private SOCat basicCat;
+        [SerializeField] private List<CatTierColor> tierColors = new();
+
+        public Color GetTierColor(ECatTier tier)
+        {
+            return tierColors.FirstOrDefault(t => t.catTier == tier)?.color ?? Color.clear;
+        }
 
         private const string SaveFilePath = "/Saves/saveFile.*";
         
@@ -130,5 +137,12 @@ namespace Managers
             
             Debug.Log("INITIALIZED SCENE");
         }
+    }
+
+    [System.Serializable]
+    public class CatTierColor
+    {
+        public Color color;
+        public ECatTier catTier;
     }
 }

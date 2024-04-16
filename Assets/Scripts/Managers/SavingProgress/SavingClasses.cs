@@ -14,6 +14,7 @@ namespace Managers.SavingProgress
             {
                 CatName = defaultCat.GetDisplayInfo().CatName,
                 Level = 1,
+                DropAmount = 1,
             };
 
             PickedCat = defaultCatSaveInstance;
@@ -29,6 +30,7 @@ namespace Managers.SavingProgress
     {
         public string CatName;
         public int Level;
+        public int DropAmount;
     }
 
     public class Wrapper<T>

@@ -212,6 +212,15 @@ MonoBehaviour:
   nonSingletonObjects:
   - {fileID: 929872896}
   basicCat: {fileID: 11400000, guid: c0bba19a553b4dd4bb8c3f7c058eef49, type: 2}
+  tierColors:
+  - color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+    catTier: 1
+  - color: {r: 0, g: 0.3347354, b: 1, a: 1}
+    catTier: 2
+  - color: {r: 0.72697544, g: 0, b: 1, a: 1}
+    catTier: 3
+  - color: {r: 1, g: 0.9982565, b: 0, a: 1}
+    catTier: 4
 --- !u!4 &219174693
 Transform:
   m_ObjectHideFlags: 0
