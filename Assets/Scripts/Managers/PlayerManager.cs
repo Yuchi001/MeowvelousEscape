@@ -44,16 +44,17 @@ namespace Managers
             Camera.main.transform.position = _currentLeader.leaderScript.transform.position;
         }
 
-        public void StartRun(SOCat cat)
+        public void StartRun(SOCat cat, Vector2 spawnPos)
         {
-            var catLeaderPrefab = Instantiate(this.catLeaderPrefab, Vector2.zero, Quaternion.identity);
+            var catLeaderPrefab = Instantiate(this.catLeaderPrefab, spawnPos, Quaternion.identity);
             _currentLeader = (catLeaderPrefab.GetComponent<FollowLeader>(), cat);
+            catLeaderPrefab.GetComponentInChildren<SpriteRenderer>().color = cat.GetDisplayInfo().CatColor;
             var member = _currentLeader.leaderScript.GetComponentInChildren<CatMember>();
             member.SetCat(new ActiveCatData()
             {
                 cat = cat,
                 level = 1,
-                health = cat.GetSpecificInfo(1).maxHealth,
+                health = cat.GetSpecificInfo(1).MaxHealth,
             }, KeyCode.Q);
             TeamMembers.Add((member, KeyCode.Q));
             member.OnCatDamaged += Member_OnCatDamaged;
@@ -87,7 +88,7 @@ namespace Managers
             RescuedCatsCount++;
             
             var catDetails = cat.GetDisplayInfo();
-            var catTeamMemberCheck = TeamMembers.FirstOrDefault(c => c.member.GetCat().cat.GetDisplayInfo().catName == catDetails.catName);
+            var catTeamMemberCheck = TeamMembers.FirstOrDefault(c => c.member.GetCat().cat.GetDisplayInfo().CatName == catDetails.CatName);
             if (catTeamMemberCheck != default)
             {
                 catTeamMemberCheck.member.LevelUp();
@@ -106,7 +107,7 @@ namespace Managers
             }
 
             var catBackupMemberCheck =
-                BackupMembers.FirstOrDefault(c => c.cat.GetDisplayInfo().catName == catDetails.catName);
+                BackupMembers.FirstOrDefault(c => c.cat.GetDisplayInfo().CatName == catDetails.CatName);
             if (catBackupMemberCheck != default)
             {
                 catBackupMemberCheck.level++;
@@ -119,7 +120,7 @@ namespace Managers
             {
                 cat = cat,
                 level = 1,
-                health = cat.GetSpecificInfo(1).maxHealth,
+                health = cat.GetSpecificInfo(1).MaxHealth,
             });
             return false;
         }
@@ -132,7 +133,7 @@ namespace Managers
             {
                 cat = cat,
                 level = 1,
-                health = cat.GetSpecificInfo(1).maxHealth,
+                health = cat.GetSpecificInfo(1).MaxHealth,
             }, GetAttackKey());
 
             return memberScript;

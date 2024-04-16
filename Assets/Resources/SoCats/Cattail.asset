@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catSprite: {fileID: 21300000, guid: 93cf46436afe55344917c0eb068cbb54, type: 3}
   catName: Cattail
-  abilityDescription: 
+  abilityDescription: "Test opisu umiej\u0119tno\u015Bci kotka"
   attackAnimation: 0
   catColor: {r: 1, g: 0.9292453, b: 0.9292453, a: 1}
   catEyeColor: {r: 0, g: 0, b: 0, a: 1}
-  catNoseColor: {r: 1, g: 0.79607844, b: 0.79607844, a: 1}
+  catNoseColor: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
   catBreed: 1
   attackPrefab: {fileID: 3855824550957430280, guid: 5f0156af6b08bf648bd5c0d6144cf4ad, type: 3}
   damage: 12
+  attacksPerSecond: 2
   cooldown: 0.5
   health: 9

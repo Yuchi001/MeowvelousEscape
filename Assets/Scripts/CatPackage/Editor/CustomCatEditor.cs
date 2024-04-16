@@ -19,6 +19,7 @@ namespace CatPackage.Editor
         private SerializedProperty damage;
         private SerializedProperty cooldown;
         private SerializedProperty health;
+        private SerializedProperty attacksPerSecond;
 
         private SOCat _catScript;
 
@@ -36,6 +37,7 @@ namespace CatPackage.Editor
             damage = serializedObject.FindProperty("damage");
             cooldown = serializedObject.FindProperty("cooldown");
             health = serializedObject.FindProperty("health");
+            attacksPerSecond = serializedObject.FindProperty("attacksPerSecond");
             
             _catScript = target as SOCat;
         }
@@ -61,11 +63,12 @@ namespace CatPackage.Editor
             EditorGUILayout.PropertyField(catColor);
             EditorGUILayout.PropertyField(catEyeColor);
             EditorGUILayout.PropertyField(catNoseColor);
+            EditorGUILayout.PropertyField(abilityDescription);
             
             catBreed.enumValueIndex = TryGetBreedIndex();
             EditorGUI.BeginDisabledGroup(true);
             EditorGUILayout.PropertyField(catBreed);
-            EditorGUILayout.EnumPopup("Cat tier", _catScript.GetDisplayInfo().catTier);
+            EditorGUILayout.EnumPopup("Cat tier", _catScript.GetDisplayInfo().CatTier);
             EditorGUI.EndDisabledGroup();
 
             EditorGUILayout.Space(20);
@@ -75,6 +78,7 @@ namespace CatPackage.Editor
             EditorGUILayout.PropertyField(damage);
             EditorGUILayout.PropertyField(cooldown);
             EditorGUILayout.PropertyField(health);
+            EditorGUILayout.PropertyField(attacksPerSecond);
             
             serializedObject.ApplyModifiedProperties();
         }

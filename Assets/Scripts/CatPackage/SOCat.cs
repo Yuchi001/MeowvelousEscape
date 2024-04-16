@@ -10,7 +10,7 @@ public class SOCat : ScriptableObject
     [Header("Display info")] [SerializeField]
     private Sprite catSprite;
     [SerializeField] private string catName;
-    [SerializeField] private string abilityDescription;
+    [SerializeField, TextArea] private string abilityDescription;
     [SerializeField] private CatAnimation attackAnimation;
     [SerializeField] private Color catColor;
     [SerializeField] private Color catEyeColor;
@@ -20,6 +20,7 @@ public class SOCat : ScriptableObject
     [Header("Cat settings")]
     [SerializeField] private GameObject attackPrefab;
     [SerializeField] private int damage;
+    [SerializeField] private float attacksPerSecond;
     [SerializeField] private float cooldown;
     [SerializeField] private int health;
 
@@ -38,13 +39,14 @@ public class SOCat : ScriptableObject
     {
         return new SCatDisplayInfo()
         {
-            catBreed = catBreed,
-            catName = catName,
-            catSprite = catSprite,
-            catTier = (ECatTier)Mathf.CeilToInt((int)catBreed / 2f),
-            catColor = catColor,
-            catEyeColor = catEyeColor,
-            catNoseColor = catNoseColor,
+            CatBreed = catBreed,
+            CatName = catName,
+            CatSprite = catSprite,
+            CatTier = (ECatTier)Mathf.CeilToInt((int)catBreed / 2f),
+            CatColor = catColor,
+            CatEyeColor = catEyeColor,
+            CatNoseColor = catNoseColor,
+            AbilityDescription = abilityDescription,
         };
     }
 
@@ -53,7 +55,7 @@ public class SOCat : ScriptableObject
         float getCooldown()
         {
             var cd = cooldown;
-            for (var i = 0; i < catLevel; i++)
+            for (var i = 1; i < catLevel; i++)
             {
                 cd -= (cd / 100f) * 5f;
             }
@@ -63,27 +65,30 @@ public class SOCat : ScriptableObject
         
         return new SCatSpecificInfo()
         {
-            cooldown = getCooldown(),
-            damage = Mathf.CeilToInt(damage + (damage / 100f * catLevel)),
-            maxHealth = Mathf.CeilToInt(health + (health / 100f * catLevel)),
+            Cooldown = getCooldown(),
+            Damage = Mathf.CeilToInt(damage + damage / 100f * (catLevel - 1)),
+            MaxHealth = Mathf.CeilToInt(health + health / 100f * (catLevel - 1)),
+            AttacksPerSecond = Mathf.CeilToInt(attacksPerSecond + attacksPerSecond / 100f * (catLevel - 1)),
         };
     }
 }
 
 public struct SCatDisplayInfo
 {
-    public Sprite catSprite;
-    public ECatBreed catBreed;
-    public ECatTier catTier;
-    public string catName;
-    public Color catColor;
-    public Color catEyeColor;
-    public Color catNoseColor;
+    public Sprite CatSprite;
+    public ECatBreed CatBreed;
+    public ECatTier CatTier;
+    public string CatName;
+    public string AbilityDescription;
+    public Color CatColor;
+    public Color CatEyeColor;
+    public Color CatNoseColor;
 }
 
 public struct SCatSpecificInfo
 {
-    public int damage;
-    public float cooldown;
-    public int maxHealth;
+    public int Damage;
+    public int AttacksPerSecond;
+    public float Cooldown;
+    public int MaxHealth;
 }

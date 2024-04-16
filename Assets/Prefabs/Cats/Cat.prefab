@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2fe5b33a4440dfb40ad58d69f473fc73, type: 2}
+  - {fileID: 2100000, guid: b24dfa96d404f5041ac537882f1f7857, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -404,10 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPos: {fileID: 7261487162145799405}
-  _activeCat:
-    cat: {fileID: 0}
-    level: 0
-    health: 0
+  diamondSpriteRenderer: {fileID: 1736831431413968035}
   spriteRenderer: {fileID: 1613464984205279557}
 --- !u!58 &4412839128500046846
 CircleCollider2D:
@@ -472,7 +469,7 @@ MonoBehaviour:
   - {x: -0.12147725, y: 0.056102633, z: 0}
   m_ShapePathHash: 999258673
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40668
+  m_InstanceId: 114898
   m_LocalBounds:
     m_Center: {x: -0.031281397, y: 0.09297483, z: 0}
     m_Extent: {x: 0.16252594, y: 0.09682886, z: 0}

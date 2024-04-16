@@ -60,7 +60,7 @@ namespace DefaultNamespace.CagePack
             Destroy(catInBox.gameObject);
             
             var tier = GetRandomTier();
-            var catsByTier = cats.Where(c => c.GetDisplayInfo().catTier == tier).ToList();
+            var catsByTier = cats.Where(c => c.GetDisplayInfo().CatTier == tier).ToList();
             if (catsByTier.Count == 0)
             {
                 Instantiate(CatNotUnlockedCanvas, new Vector3(catInBox.transform.position.x, catInBox.transform.position.y + 50, 0), Quaternion.identity);

@@ -170,15 +170,15 @@ MonoBehaviour:
   worldGenerator: {fileID: 1425245545}
   keyColors:
   - key: 113
-    color: {r: 0.18900083, g: 0.8113208, b: 0, a: 1}
+    color: {r: 1, g: 0, b: 0.11576605, a: 1}
   - key: 119
     color: {r: 0, g: 0.5255146, b: 0.8113208, a: 1}
   - key: 101
     color: {r: 1, g: 0.6462264, b: 0.852408, a: 1}
   - key: 114
-    color: {r: 1, g: 0.8759048, b: 0, a: 1}
-  catFollowerPrefab: {fileID: 0}
-  catLeaderPrefab: {fileID: 0}
+    color: {r: 0.5330782, g: 1, b: 0, a: 1}
+  catFollowerPrefab: {fileID: 4128279896785676916, guid: 4ac8b89378d772742a10bbcca56dcea0, type: 3}
+  catLeaderPrefab: {fileID: 3335787140440932800, guid: eda0d1b010354844cbf22390cdfada38, type: 3}
 --- !u!1 &219174691
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   startingScene: 1
   nonSingletonObjects:
   - {fileID: 929872896}
+  basicCat: {fileID: 11400000, guid: c0bba19a553b4dd4bb8c3f7c058eef49, type: 2}
 --- !u!4 &219174693
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1425245544
 Transform:
   m_ObjectHideFlags: 0
@@ -499,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 565ba399543b3be4ab22fb4bcb2753c4, type: 2}
   observerCamera: {fileID: 0}
-  randomizeSeedOnStart: 1
+  randomizeSeedOnStart: 0
   seed: 0
   spawnTruckEveryChunk: 500
   truckChunkPrototype: {fileID: 3744618663204772373, guid: c224211acf2f979478c4fbd4b987a3e9, type: 3}

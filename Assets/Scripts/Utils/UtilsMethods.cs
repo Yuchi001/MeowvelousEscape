@@ -38,30 +38,34 @@ namespace Utils
             return condition ? val : -val;
         }
         
-        /*public static void SetCatMaterialColors(SpriteRenderer spriteRenderer)
+        public static void SetCatMaterialColors(this SpriteRenderer spriteRenderer, SOCat cat)
         {
             // red -> nos
             // blue -> fur
             // green -> eyes
-            spriteRenderer.sprite = catSprite;
+            var displayInfo = cat.GetDisplayInfo();
+            
+            spriteRenderer.sprite = displayInfo.CatSprite;
             var material = spriteRenderer.material;
-            material.SetColor("_Red", catNoseColor);
-            material.SetColor("_Blue", catColor);
-            material.SetColor("_Green", catEyeColor);
+            material.SetColor("_Red", displayInfo.CatNoseColor);
+            material.SetColor("_Blue", displayInfo.CatColor);
+            material.SetColor("_Green", displayInfo.CatEyeColor);
         }
-        public static void SetCatMaterialColors(Image image)
+        public static void SetCatMaterialColors(this Image image, SOCat cat)
         {
             // red -> nos
             // blue -> fur
             // green -> eyes
-            image.sprite = catSprite;
-            var material = Instantiate(image.material);
+            var displayInfo = cat.GetDisplayInfo();
+            
+            image.sprite = displayInfo.CatSprite;
+            var material = Object.Instantiate(image.material);
             image.color = new Color(image.color.r, image.color.g, image.color.b, 1);
 
-            material.SetColor("_Red", catNoseColor);
-            material.SetColor("_Blue", catColor);
-            material.SetColor("_Green", catEyeColor);
+            material.SetColor("_Red", displayInfo.CatNoseColor);
+            material.SetColor("_Blue", displayInfo.CatColor);
+            material.SetColor("_Green", displayInfo.CatEyeColor);
             image.material = material;
-        }*/
+        }
     }
 }

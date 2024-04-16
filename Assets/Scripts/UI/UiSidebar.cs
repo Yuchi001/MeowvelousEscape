@@ -10,21 +10,26 @@ namespace UI
         [SerializeField] private Transform catDropFadeOutPos;
         [SerializeField] private float fadeTime;
 
-        private float _fadeOutPosX;
+        private Vector2 _fadeOutPos;
+        
+        public delegate void StartGameDelegate();
+        public static event StartGameDelegate OnStartGame;
+        
         private void Awake()
         {
-            _fadeOutPosX = transform.localPosition.x;
-            transform.LeanMoveLocalX(fadeInPos.localPosition.x, fadeTime).setEaseOutBounce();
+            _fadeOutPos = transform.localPosition;
+            transform.LeanMoveLocal(fadeInPos.localPosition, fadeTime).setEaseOutBounce();
         }
 
         public void OnPlay()
         {
-            transform.LeanMoveLocalX(_fadeOutPosX, fadeTime).setEaseInBounce();
+            OnStartGame?.Invoke();
+            gameObject.SetActive(false);
         }
 
         public void OnCatDrop()
         {
-            transform.LeanMoveLocalX(catDropFadeOutPos.localPosition.x, fadeTime).setEaseInBounce();
+            transform.LeanMoveLocal(catDropFadeOutPos.localPosition, fadeTime).setEaseInBounce();
         }
 
         public void OnExit()
