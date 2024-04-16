@@ -33,21 +33,18 @@ public class SpawnCageMaybe : MonoBehaviour
 
     private void Start()
     {
-        if (transform.position.magnitude > inactiveRadius)
-        {
-            float value = Mathf.PerlinNoise(
-                transform.position.x / scale + randomOffset.Value.x,
-                transform.position.y / scale + randomOffset.Value.y);
+        if (!(transform.position.magnitude > inactiveRadius)) return;
+        var value = Mathf.PerlinNoise(
+            transform.position.x / scale + randomOffset.Value.x,
+            transform.position.y / scale + randomOffset.Value.y);
 
-            if (value > cageSpawnValue)
-            {
-                var cage = Instantiate(cagePrefab, transform.position, Quaternion.identity);
-            }
-            else if (value > guardSpawnValue)
-            {
-                var randomGuardPrefab = guardPrefabs[Random.Range(0, guardPrefabs.Length)];
-                var guard = Instantiate(randomGuardPrefab, transform.position, Quaternion.identity);
-            }
+        if (value > cageSpawnValue)
+        {
+            Instantiate(cagePrefab, transform.position, Quaternion.identity);
+            return;
         }
+        
+        var randomGuardPrefab = guardPrefabs[Random.Range(0, guardPrefabs.Length)];
+        Instantiate(randomGuardPrefab, transform.position, Quaternion.identity);
     }
 }

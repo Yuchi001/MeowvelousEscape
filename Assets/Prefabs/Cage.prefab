@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 5153904759296507959}
   - component: {fileID: 8907358531513029263}
   - component: {fileID: 5790100697139208748}
+  - component: {fileID: 2499361223659684890}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -339,6 +340,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.49494398}
   m_EdgeRadius: 0
+--- !u!114 &2499361223659684890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366165656943364341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 1bb2fbee00000000
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.50034153, y: -0.008502185, z: 0}
+  - {x: 0.4978577, y: -0.0034258366, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  m_ShapePathHash: 1576897771
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 44676
+  m_LocalBounds:
+    m_Center: {x: -0.00017076731, y: -0.25171292, z: 0}
+    m_Extent: {x: 0.50017077, y: 0.24828708, z: 0}
 --- !u!1 &9007282234028493343
 GameObject:
   m_ObjectHideFlags: 0

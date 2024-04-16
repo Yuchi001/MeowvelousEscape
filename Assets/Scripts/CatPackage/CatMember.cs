@@ -3,6 +3,7 @@ using System.Linq;
 using Managers;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace CatPackage
 {
@@ -11,8 +12,8 @@ namespace CatPackage
         public event CatDamageEventHandler OnCatDamaged;
 
         [SerializeField] private Transform shootPos;
+        [SerializeField] private SpriteRenderer diamondSpriteRenderer;
 
-        [SerializeField, ReadOnly]
         private ActiveCatData _activeCat;
 
         [SerializeField]
@@ -30,8 +31,10 @@ namespace CatPackage
             _attackKey = attackKey;
             _activeCat = activeCatData;
             gameObject.SetActive(true);
-            GetComponentInParent<SpriteRenderer>().color = catColor =
-                PlayerManager.Instance.KeyColors.FirstOrDefault(c => c.key == _attackKey).color;
+            catColor = GetComponent<SpriteRenderer>().color;
+            var teamColor = PlayerManager.Instance.KeyColors.FirstOrDefault(c => c.key == _attackKey).color;
+            diamondSpriteRenderer.GetComponent<Light2D>().color = teamColor;
+            diamondSpriteRenderer.material.SetColor("_Red", teamColor);
         }
 
         public ActiveCatData GetCat()
@@ -53,7 +56,7 @@ namespace CatPackage
             OnCatDamaged?.Invoke(this, damage);
         }
 
-        public static readonly Color DamagedColor = Color.red;
+        public static readonly Color DamagedColor = Color.white;
 
         private IEnumerator AnimateDamageCo()
         {
@@ -76,7 +79,7 @@ namespace CatPackage
             }
             
             _timer += Time.deltaTime;
-            if (!Input.GetKey(_attackKey) || _timer < _activeCat.cat.GetSpecificInfo(_activeCat.level).cooldown) return;
+            if (!Input.GetKey(_attackKey) || _timer < _activeCat.cat.GetSpecificInfo(_activeCat.level).Cooldown) return;
 
             _timer = 0;
             _activeCat.cat.SpawnAttackPrefab(shootPos.position, transform, _activeCat.level);
